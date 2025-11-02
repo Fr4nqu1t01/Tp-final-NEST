@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DueñosController } from './dueños/dueños.controller';
 import { DueñosService } from './dueños/dueños.service';
-import { DueñosModule } from './dueños/dueños.module';
+import { DueñosModel } from './dueños/dueños.model';
 import { MascotasController } from './mascotas/mascotas.controller';
 import { MascotasService } from './mascotas/mascotas.service';
-import { MascotasModule } from './mascotas/mascotas.module';
+import { MascotasModel } from './mascotas/mascotas.model';
 
 @Module({
-  imports: [DueñosModule, MascotasModule],
+  imports: [DueñosModel, MascotasModel],
   controllers: [AppController, DueñosController, MascotasController],
   providers: [AppService, DueñosService, MascotasService],
 })
