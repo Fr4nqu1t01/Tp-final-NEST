@@ -1,0 +1,69 @@
+{
+  "dueños": [
+    {
+      "id": "1",
+      "nombre": "Juan Perez",
+      "telefono": "2494234567",
+      "email": "juanperez@gmail.com",
+      "idDueño": "1"
+    },
+    {
+      "id": "2",
+      "nombre": "Maria Gomez",
+      "telefono": "2494876543",
+      "email": "mariagomez@gmail.com",
+      "idDueño": "2"
+    },
+    {
+      "id": "3",
+      "nombre": "Carlos Sanchez",
+      "telefono": "2494472166",
+      "email": "carlossanchez@gmail.com",
+      "idDueño": "3"
+    },
+    {
+      "id": "4",
+      "nombre": "lionel messi",
+      "telefono": "2494664529",
+      "email": "messithegoat@gmail.com",
+      "idDueño": "6"
+    }
+  ],
+  "mascotas": [
+    {
+      "id": "1",
+      "nombre": "malcom",
+      "raza": "border collie",
+      "edad": "5",
+      "idDueño": "1"
+    },
+    {
+      "id": "2",
+      "nombre": "luna",
+      "raza": "pastor aleman",
+      "edad": "3",
+      "idDueño": "2"
+    },
+    {
+      "id": "3",
+      "nombre": "rocky",
+      "raza": "bulldog frances",
+      "edad": "4",
+      "idDueño": "3"
+    },
+    {
+      "id": "4",
+      "nombre": "mechi",
+      "raza": "caniche toy",
+      "edad": "3",
+      "idDueño": "6"
+    },
+    {
+      "id": "5",
+      "nombre": "mechidos",
+      "raza": "caniche toy",
+      "edad": "1",
+      "idDueño": "6"
+    }
+  ]
+}

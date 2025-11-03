@@ -1,47 +1,48 @@
 import { Injectable } from '@nestjs/common';
-
+import * as fs from 'fs';
 @Injectable()
 export class MascotasService {
-  mascotas: any[] = [];
+  private rutaBaseDatos = 'src/base de datos/bd.json';
 
-  constructor() {
-    let mascota = {
-      id: "1",
-      nombre: 'malcom',
-      raza: 'border collie',
-      edad: "5",
-      idDueño: "1",
-    };
-    this.mascotas.push(mascota);
-    mascota = {
-      id: "2",
-      nombre: 'rocky',
-      raza: 'bulldog',
-      edad: "3",
-      idDueño: "3",
-    };
-    this.mascotas.push(mascota);
-
-    mascota = {
-      id: "3",
-      nombre: 'luna',
-      raza: 'pastor aleman',
-      edad: "4",
-      idDueño: "2",
-    };
-    this.mascotas.push(mascota);
+  private leerBaseDatos() {
+    const datos = fs.readFileSync(this.rutaBaseDatos, 'utf-8');
+    return JSON.parse(datos);
+  }
+  private guardarBaseDatos(datos: any[]) {
+    fs.writeFileSync(this.rutaBaseDatos, JSON.stringify(datos, null, 2));
   }
 
   getMascotas() {
-    return this.mascotas;
+    return this.leerBaseDatos().mascotas;
   }
 
   getMascotaById(id: string) {
-    for (let i = 0; i < this.mascotas.length; i++) {
-      if (this.mascotas[i].id === id) {
-        return this.mascotas[i];
+    for (let i = 0; i < this.leerBaseDatos().mascotas.length; i++) {
+      if (this.leerBaseDatos().mascotas[i].id === id) {
+        return this.leerBaseDatos().mascotas[i];
       }
     }
     return `Mascota con id ${id} no encontrada`;
+  }
+  registrarMascota(
+    nombre: string,
+    raza: string,
+    edad: string,
+    idDueño: string,
+  ) {
+    const datos = this.leerBaseDatos();
+
+    const indiceNuevo = datos.mascotas.length + 1;
+    const nuevaMascota = {
+      id: indiceNuevo.toString(),
+      nombre,
+      raza,
+      edad,
+      idDueño,
+    };
+    datos.mascotas.push(nuevaMascota);
+
+    this.guardarBaseDatos(datos);
+    return nuevaMascota;
   }
 }
