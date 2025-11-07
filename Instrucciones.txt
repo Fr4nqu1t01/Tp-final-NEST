@@ -1,0 +1,126 @@
+DUENIOS
+
+GET /duenios/lista
+Devuelve la lista completa de duenios registrados.
+
+GET /duenios/:id
+Devuelve la información de un duenio según su id (string).
+
+POST /duenios/registrar
+Cuerpo (JSON):
+{
+"nombre": "Laura Rossi",
+"telefono": "2494000000",
+"email": "[laura@example.com](mailto:laura@example.com)"
+}
+Crea un nuevo duenio.
+El id se genera automáticamente como string.
+
+MASCOTAS
+
+GET /mascotas/lista
+Devuelve todas las mascotas registradas.
+
+GET /mascotas/lista/:id
+Devuelve los datos de una mascota por su id (string).
+
+POST /mascotas
+Cuerpo (JSON):
+{
+"nombre": "Firulais",
+"raza": "Mestizo",
+"edad": "2",
+"idDuenio": "1"
+}
+
+Reglas:
+
+* idDuenio debe existir en la lista de duenios; si no, devuelve un mensaje de error.
+
+GET /mascotas/historial/:id
+Devuelve el historial médico de una mascota según su idMascota.
+
+TURNOS
+
+GET /turnos/lista
+Devuelve todos los turnos.
+
+GET /turnos/:id
+Devuelve la información de un turno por su id (string).
+
+POST /turnos
+Cuerpo (JSON):
+{
+"idMascota": "1",
+"idDuenio": "1",
+"fecha": "2025-12-10T10:00:00.000Z",
+"motivo": "Vacuna"
+}
+
+Reglas:
+
+* La mascota debe existir.
+* El duenio debe existir.
+* idDuenio debe coincidir con el de la mascota.
+* La fecha debe ser futura (no se permiten fechas pasadas).
+* No puede haber doble reserva: si la misma mascota ya tiene un turno pendiente en esa fecha y hora, devuelve un mensaje de error.
+
+PUT /turnos/:id
+Permite modificar un turno existente.
+Cuerpo (JSON) — se puede actualizar cualquiera de estos campos:
+
+Cambiar fecha (debe ser futura):
+{ "fecha": "2025-12-15T09:00:00.000Z" }
+
+Cambiar motivo:
+{ "motivo": "Chequeo" }
+
+Cambiar estado:
+{ "estado": "atendido" }
+(Valores permitidos: pendiente, atendido, cancelado)
+
+Reglas:
+
+* No se puede poner una fecha pasada.
+* No se puede dejar el mismo estado que ya tenía.
+
+DELETE /turnos/:id
+Elimina un turno según su id.
+
+HISTORIAL
+
+GET /historial/lista
+Devuelve todos los registros del historial médico.
+
+GET /historial/lista/:id
+Devuelve un registro específico por su id (string).
+
+GET /historial/mascota/:idMascota
+Devuelve el historial completo de una mascota según su id.
+
+POST /historial
+Cuerpo (JSON):
+{
+"idMascota": "1",
+"fecha": "2024-11-01",
+"tipo": "vacuna",
+"descripcion": "Refuerzo anual",
+"vacunaNombre": "Antirrabica"
+}
+
+Reglas:
+
+* La mascota debe existir.
+* La fecha debe ser pasada (no se permiten fechas futuras).
+* El campo vacunaNombre solo se usa cuando el tipo es "vacuna".
+
+NOTAS Y VALIDACIONES
+
+* Las respuestas de error son mensajes tipo string (no excepciones de Nest por ahora).
+* Fechas:
+
+  * Turnos deben ser futuras.
+  * Historial deben ser pasadas.
+* Estados válidos de turno: pendiente, atendido, cancelado.
+* Nombres de claves: usar siempre idDuenio (no idDueño ni otras variantes).
+* IDs: siempre son strings, por ejemplo "1", "2", etc.
