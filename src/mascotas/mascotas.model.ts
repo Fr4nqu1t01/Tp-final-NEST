@@ -1,7 +1,7 @@
-export class MascotasModel {
+export class MascotasModule {
     id: string;
     nombre: string;
     raza: string;
     edad: string;
-    idDueño: string;
+    idDuenio: string;
 }
