@@ -1,69 +1,230 @@
 {
-  "dueños": [
+  "duenios": [
     {
       "id": "1",
       "nombre": "Juan Perez",
       "telefono": "2494234567",
       "email": "juanperez@gmail.com",
-      "idDueño": "1"
+      "idDuenio": "1"
     },
     {
       "id": "2",
-      "nombre": "Maria Gomez",
-      "telefono": "2494876543",
+      "nombre": "María Gómez",
+      "telefono": "2494234568",
       "email": "mariagomez@gmail.com",
-      "idDueño": "2"
+      "idDuenio": "2"
     },
     {
       "id": "3",
-      "nombre": "Carlos Sanchez",
+      "nombre": "Carlos Sánchez",
       "telefono": "2494472166",
       "email": "carlossanchez@gmail.com",
-      "idDueño": "3"
+      "idDuenio": "3"
     },
     {
       "id": "4",
-      "nombre": "lionel messi",
-      "telefono": "2494664529",
-      "email": "messithegoat@gmail.com",
-      "idDueño": "6"
+      "nombre": "Ana López",
+      "telefono": "2494123456",
+      "email": "analopez@gmail.com",
+      "idDuenio": "4"
+    },
+    {
+      "id": "5",
+      "nombre": "Diego Fernández",
+      "telefono": "2494987654",
+      "email": "diegof@gmail.com",
+      "idDuenio": "5"
+    },
+    {
+      "id": "6",
+      "nombre": "Lucía Morales",
+      "telefono": "2494001122",
+      "email": "luciam@gmail.com",
+      "idDuenio": "6"
     }
   ],
   "mascotas": [
     {
       "id": "1",
-      "nombre": "malcom",
-      "raza": "border collie",
+      "nombre": "Malcom",
+      "raza": "Border Collie",
       "edad": "5",
-      "idDueño": "1"
+      "idDuenio": "1"
     },
     {
       "id": "2",
-      "nombre": "luna",
-      "raza": "pastor aleman",
+      "nombre": "Rocky",
+      "raza": "Bulldog",
       "edad": "3",
-      "idDueño": "2"
+      "idDuenio": "2"
     },
     {
       "id": "3",
-      "nombre": "rocky",
-      "raza": "bulldog frances",
+      "nombre": "Luna",
+      "raza": "Pastor Alemán",
       "edad": "4",
-      "idDueño": "3"
+      "idDuenio": "3"
     },
     {
       "id": "4",
-      "nombre": "mechi",
-      "raza": "caniche toy",
-      "edad": "3",
-      "idDueño": "6"
+      "nombre": "Coco",
+      "raza": "Poodle",
+      "edad": "2",
+      "idDuenio": "4"
     },
     {
       "id": "5",
-      "nombre": "mechidos",
-      "raza": "caniche toy",
+      "nombre": "Milo",
+      "raza": "Schnauzer",
+      "edad": "6",
+      "idDuenio": "5"
+    },
+    {
+      "id": "6",
+      "nombre": "Nala",
+      "raza": "Siamés",
       "edad": "1",
-      "idDueño": "6"
+      "idDuenio": "6"
+    },
+    {
+      "id": "7",
+      "nombre": "Kira",
+      "raza": "Beagle",
+      "edad": "7",
+      "idDuenio": "1"
+    },
+    {
+      "id": "8",
+      "nombre": "Thor",
+      "raza": "Labrador",
+      "edad": "4",
+      "idDuenio": "2"
+    }
+  ],
+  "turnos": [
+    {
+      "id": "1",
+      "idMascota": "1",
+      "idDuenio": "1",
+      "fecha": "2025-11-10T10:00:00.000Z",
+      "motivo": "Chequeo anual",
+      "estado": "pendiente"
+    },
+    {
+      "id": "2",
+      "idMascota": "2",
+      "idDuenio": "2",
+      "fecha": "2025-10-01T09:30:00.000Z",
+      "motivo": "Vacuna",
+      "estado": "atendido"
+    },
+    {
+      "id": "3",
+      "idMascota": "3",
+      "idDuenio": "3",
+      "fecha": "2024-08-15T15:00:00.000Z",
+      "motivo": "Consulta por cojeras",
+      "estado": "atendido"
+    },
+    {
+      "id": "4",
+      "idMascota": "4",
+      "idDuenio": "4",
+      "fecha": "2025-11-05T11:00:00.000Z",
+      "motivo": "Pipetas y desparasitación",
+      "estado": "pendiente"
+    },
+    {
+      "id": "5",
+      "idMascota": "5",
+      "idDuenio": "5",
+      "fecha": "2023-12-20T12:00:00.000Z",
+      "motivo": "Control post-operatorio",
+      "estado": "atendido"
+    },
+    {
+      "id": "6",
+      "idMascota": "6",
+      "idDuenio": "6",
+      "fecha": "2025-09-20T14:00:00.000Z",
+      "motivo": "Chequeo",
+      "estado": "cancelado"
+    }
+  ],
+  "historial": [
+    {
+      "id": "1",
+      "idMascota": "1",
+      "fecha": "2024-11-01",
+      "tipo": "vacuna",
+      "descripcion": "Vacuna antirrábica anual",
+      "vacunaNombre": "Antirrábica"
+    },
+    {
+      "id": "2",
+      "idMascota": "1",
+      "fecha": "2023-11-05",
+      "tipo": "chequeo",
+      "descripcion": "Chequeo anual sin novedades"
+    },
+    {
+      "id": "3",
+      "idMascota": "2",
+      "fecha": "2025-10-01",
+      "tipo": "vacuna",
+      "descripcion": "Vacuna combinada 5 en 1",
+      "vacunaNombre": "5en1"
+    },
+    {
+      "id": "4",
+      "idMascota": "3",
+      "fecha": "2024-08-15",
+      "tipo": "diagnostico",
+      "descripcion": "Distensión muscular, reposo 10 días"
+    },
+    {
+      "id": "5",
+      "idMascota": "4",
+      "fecha": "2025-05-03",
+      "tipo": "tratamiento",
+      "descripcion": "Ciclo de antibióticos por otitis"
+    },
+    {
+      "id": "6",
+      "idMascota": "5",
+      "fecha": "2023-12-20",
+      "tipo": "chequeo",
+      "descripcion": "Control post-operatorio"
+    },
+    {
+      "id": "7",
+      "idMascota": "6",
+      "fecha": "2025-01-10",
+      "tipo": "vacuna",
+      "descripcion": "Primera serie de vacunas",
+      "vacunaNombre": "PuppyCombo"
+    },
+    {
+      "id": "8",
+      "idMascota": "7",
+      "fecha": "2022-07-12",
+      "tipo": "vacuna",
+      "descripcion": "Vacuna antirrábica",
+      "vacunaNombre": "Antirrábica"
+    },
+    {
+      "id": "9",
+      "idMascota": "8",
+      "fecha": "2025-03-22",
+      "tipo": "diagnostico",
+      "descripcion": "Alergia alimentaria, dieta especial"
+    },
+    {
+      "id": "10",
+      "idMascota": "2",
+      "fecha": "2024-09-10",
+      "tipo": "chequeo",
+      "descripcion": "Chequeo general antes de viaje"
     }
   ]
 }
