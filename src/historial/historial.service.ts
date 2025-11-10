@@ -148,4 +148,74 @@ export class HistorialService {
 
     return resultado;
   }
+
+  getVacunasPendientes() {
+    const datos = this.leerBaseDatos();
+    const fechaActual = new Date();
+    const resultado: any[] = [];
+
+    const ultimoVacunaPorMascota: any = {};
+    for (let i = 0; i < datos.historial.length; i++) {
+      const registro = datos.historial[i];
+      if (registro.tipo === 'vacuna') {
+        if (!ultimoVacunaPorMascota[registro.idMascota]) {
+          ultimoVacunaPorMascota[registro.idMascota] = registro;
+        } else {
+          const fechaNueva = new Date(registro.fecha);
+          const fechaVieja = new Date(
+            ultimoVacunaPorMascota[registro.idMascota].fecha,
+          );
+          if (fechaNueva > fechaVieja) {
+            ultimoVacunaPorMascota[registro.idMascota] = registro;
+          }
+        }
+      }
+    }
+
+    for (let i = 0; i < datos.mascotas.length; i++) {
+      const mascota = datos.mascotas[i];
+      const ultimoVacuna = ultimoVacunaPorMascota[mascota.id];
+      let necesitaVacuna = false;
+
+      if (!ultimoVacuna) {
+        necesitaVacuna = true;
+      } else {
+        const fechaUltimo = new Date(ultimoVacuna.fecha);
+        const diferencia = fechaActual.getTime() - fechaUltimo.getTime();
+        const dias = diferencia / (1000 * 60 * 60 * 24);
+        if (dias >= 365) {
+          necesitaVacuna = true;
+        }
+      }
+
+      if (necesitaVacuna) {
+        let nombreDuenio = '';
+        for (let j = 0; j < datos.duenios.length; j++) {
+          const duenio = datos.duenios[j];
+          if (duenio.id === mascota.idDuenio) {
+            nombreDuenio = duenio.nombre;
+            break;
+          }
+        }
+
+        let fechaUltimaVacuna = '';
+        let nombreVacuna = '';
+        if (ultimoVacuna && ultimoVacuna.fecha) {
+          fechaUltimaVacuna = ultimoVacuna.fecha;
+          nombreVacuna = ultimoVacuna.vacunaNombre || '';
+        }
+
+        resultado.push({
+          idMascota: mascota.id,
+          nombreMascota: mascota.nombre,
+          idDuenio: mascota.idDuenio,
+          nombreDuenio: nombreDuenio,
+          ultimoVacuna: fechaUltimaVacuna,
+          nombreVacuna: nombreVacuna,
+        });
+      }
+    }
+
+    return resultado;
+  }
 }

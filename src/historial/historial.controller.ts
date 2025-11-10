@@ -25,6 +25,11 @@ export class HistorialController {
     return this.historialService.getChequeoAnual()
   }
 
+  @Get('vacunas-pendientes')
+  getVacunasPendientes(){
+    return this.historialService.getVacunasPendientes()
+  }
+
   @Post()
   crearRegistro(@Body() body: any) {
     return this.historialService.agregarRegistro(
