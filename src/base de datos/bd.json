@@ -4,43 +4,37 @@
       "id": "1",
       "nombre": "Juan Perez",
       "telefono": "2494234567",
-      "email": "juanperez@gmail.com",
-      "idDuenio": "1"
+      "email": "juanperez@gmail.com"
     },
     {
       "id": "2",
       "nombre": "María Gómez",
       "telefono": "2494234568",
-      "email": "mariagomez@gmail.com",
-      "idDuenio": "2"
+      "email": "mariagomez@gmail.com"
     },
     {
       "id": "3",
       "nombre": "Carlos Sánchez",
       "telefono": "2494472166",
-      "email": "carlossanchez@gmail.com",
-      "idDuenio": "3"
+      "email": "carlossanchez@gmail.com"
     },
     {
       "id": "4",
       "nombre": "Ana López",
       "telefono": "2494123456",
-      "email": "analopez@gmail.com",
-      "idDuenio": "4"
+      "email": "analopez@gmail.com"
     },
     {
       "id": "5",
       "nombre": "Diego Fernández",
       "telefono": "2494987654",
-      "email": "diegof@gmail.com",
-      "idDuenio": "5"
+      "email": "diegof@gmail.com"
     },
     {
       "id": "6",
       "nombre": "Lucía Morales",
       "telefono": "2494001122",
-      "email": "luciam@gmail.com",
-      "idDuenio": "6"
+      "email": "luciam@gmail.com"
     }
   ],
   "mascotas": [
